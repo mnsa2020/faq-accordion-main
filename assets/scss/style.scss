@@ -1,0 +1,107 @@
+// Variables
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+$mainColor: hsl(281, 84%, 55%);
+$white: hsl(0, 0%, 100%);
+$lightpink: hsl(275, 100%, 97%);
+$grayishpurple: hsl(292, 16%, 49%);
+$darkpurple: hsl(292, 42%, 14%);
+$font-family: "Work Sans", sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 16px;
+  font-family: $font-family;
+}
+main {
+  height: 100vh;
+  position: relative;
+  .bg1 {
+    background-image: url(../images/background-pattern-desktop.svg);
+    background-size: cover;
+    height: 35%;
+  }
+  .bg2 {
+    background: $grayishpurple;
+    // background-size: cover;
+    height: 65%;
+  }
+  .paragraph {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    padding: 36px;
+    border-radius: 20px;
+    width: 600px;
+    .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      h2 {
+        font-weight: 700;
+        font-size: 3.5rem;
+        padding-left: 1.5rem;
+      }
+    }
+    .accordion {
+      .item {
+        .question {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          padding-block: 25px;
+          font-weight: bold;
+          &:hover {
+            p {
+              color: $mainColor;
+            }
+          }
+          &.active {
+            img {
+              content: url(../images/icon-minus.svg);
+            }
+          }
+          img {
+            content: url(../images/icon-plus.svg);
+            transition: all 0.3s ease-in-out;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+        .answer {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-in-out;
+          &:first-child {
+            max-height: 122px;
+            color: red;
+            font-weight: bold;
+          }
+          p {
+            padding: 10px;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}
